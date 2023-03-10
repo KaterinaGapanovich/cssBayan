@@ -11,10 +11,101 @@
     padding: 0;
 }
 
+.all-lists{
+    display: flex;
+    flex-direction: column;
+}
+
+.all-lists:hover .text{
+    color: black;
+}
+
 .list{
     border-top: 0.1em solid rgb(207, 207, 207);
+    position: static;
+    display: inline-block;
+}
+
+.line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.text{
+    color: blue;
+}
+
+.plus{
+    width: 20px;
+	height: 20px;
+	background: linear-gradient(to bottom, transparent 35%, #000 35%, #000 65%, transparent 65%), linear-gradient(to right, transparent 35%, #000 35%, #000 65%, transparent 65%);
+    display: none;
+}
+
+.all-lists:hover .plus{
+    display: block;
+    margin-top: 3%;
+}
+
+.list:hover .plus{
+    transform: rotate(45deg);
+}
+
+.list:active .plus{
+    display: block;
 }
 
 .image{
     margin-left: 30%;
+    margin-bottom: 3%;
+    display: none;
+    position: static;
+}
+
+@media (max-width: 1920px) {
+    /* стили указанные здесь применяются, если ширина 
+    viewport меньше или равно 1920px (desktop 1920×1080)*/
+
+    .header{
+        font-size: 25px;
+    }
+
+    .text{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 820px) {
+    /* стили указанные здесь применяются, если ширина 
+    viewport меньше или равно 820px (tablet 820x1180)*/
+    
+    .header{
+        font-size: 20px;
+    }
+
+    .text{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 320px) {
+    /* стили указанные здесь применяются, если ширина 
+    viewport меньше или равно 320px (mobile 320x568)*/
+
+    .header{
+        font-size: 10px;
+    }
+
+    .text{
+        font-size: 7px;
+    }
+}
+
+.image img{
+    display: block;
+}
+
+.list:hover .image{
+    display: block;
 }
