@@ -1,0 +1,20 @@
+.item{
+    background: rgb(245, 245, 233);
+    font-family: Arial Black;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 15%;
+    padding: 0;
+}
+
+.list{
+    border-top: 0.1em solid rgb(207, 207, 207);
+}
+
+.image{
+    margin-left: 30%;
+}
