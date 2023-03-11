@@ -14,6 +14,7 @@
 .all-lists{
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .all-lists:hover .text{
@@ -24,12 +25,31 @@
     border-top: 0.1em solid rgb(207, 207, 207);
     position: static;
     display: inline-block;
+    cursor: pointer;
+}
+
+.check{
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    user-select: auto;
+}
+
+.check:checked ~.image{
+    display: block;
+    visibility: visible;
+}
+
+.check.checked~.text{
+    color: black;
 }
 
 .line{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .text{
@@ -41,6 +61,7 @@
 	height: 20px;
 	background: linear-gradient(to bottom, transparent 35%, #000 35%, #000 65%, transparent 65%), linear-gradient(to right, transparent 35%, #000 35%, #000 65%, transparent 65%);
     display: none;
+    border: none;
 }
 
 .all-lists:hover .plus{
@@ -52,8 +73,17 @@
     transform: rotate(45deg);
 }
 
-.list:active .plus{
+.list:active +.plus{
     display: block;
+    color: blue;
+}
+
+.list:active .image{
+    opacity: 3;
+}
+
+.plus:active ~.image{
+    display: none;
 }
 
 .image{
@@ -61,6 +91,17 @@
     margin-bottom: 3%;
     display: none;
     position: static;
+    cursor: pointer;
+}
+
+.image img{
+    display: block;
+}
+
+.list:hover .image{
+    display: block;
+    opacity: 1;
+    transition: 2s;
 }
 
 @media (max-width: 1920px) {
@@ -100,12 +141,4 @@
     .text{
         font-size: 7px;
     }
-}
-
-.image img{
-    display: block;
-}
-
-.list:hover .image{
-    display: block;
 }
