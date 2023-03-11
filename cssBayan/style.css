@@ -6,8 +6,8 @@
 .wrapper{
     display: flex;
     flex-direction: column;
-    width: 70%;
-    margin-left: 15%;
+    width: 50%;
+    margin-left: 25%;
     padding: 0;
 }
 
@@ -36,12 +36,12 @@
     user-select: auto;
 }
 
-.check:checked ~.image{
+.check:checked ~ label .image{
     display: block;
     visibility: visible;
 }
 
-.check.checked~.text{
+.check:checked ~ label .text{
     color: black;
 }
 
@@ -73,17 +73,16 @@
     transform: rotate(45deg);
 }
 
-.list:active +.plus{
-    display: block;
+.list:active ~ label .plus{
     color: blue;
 }
 
-.list:active .image{
-    opacity: 3;
+.list:active label .image{
+    opacity: 0.33;
 }
 
-.plus:active ~.image{
-    display: none;
+.list:active ~ label .text{
+    color: blue;
 }
 
 .image{
@@ -109,11 +108,11 @@
     viewport меньше или равно 1920px (desktop 1920×1080)*/
 
     .header{
-        font-size: 25px;
+        font-size: 23px;
     }
 
     .text{
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
@@ -122,7 +121,7 @@
     viewport меньше или равно 820px (tablet 820x1180)*/
     
     .header{
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .text{
