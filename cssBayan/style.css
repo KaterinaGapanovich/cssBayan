@@ -19,6 +19,7 @@
 
 .all-lists:hover .text{
     color: black;
+    transition: 1s;
 }
 
 .list{
@@ -34,11 +35,14 @@
     -moz-appearance: none;
     appearance: none;
     user-select: auto;
+    margin: 0;
 }
 
 .check:checked ~ label .image{
-    display: block;
     visibility: visible;
+    opacity: 1;
+    z-index: 1;
+    height: 100%;
 }
 
 .check:checked ~ label .text{
@@ -56,6 +60,10 @@
     color: blue;
 }
 
+.decor-text{
+    margin-bottom: 13%;
+}
+
 .plus{
     width: 20px;
 	height: 20px;
@@ -66,70 +74,86 @@
 
 .all-lists:hover .plus{
     display: block;
-    margin-top: 3%;
+    margin-top: 2%;
 }
 
 .list:hover .plus{
     transform: rotate(45deg);
 }
 
-.list:active ~ label .plus{
-    color: blue;
-}
-
-.list:active label .image{
+.list:active label .mem{
     opacity: 0.33;
 }
 
-.list:active ~ label .text{
+.list:active label .decor-text{
     color: blue;
+}
+
+.list:active label .plus{
+    background: linear-gradient(to bottom, transparent 35%, #4000ff 35%, #0400ff 65%, transparent 65%), linear-gradient(to right, transparent 35%, #0d00ff 35%, #0d00ff 65%, transparent 65%);
 }
 
 .image{
     margin-left: 30%;
-    margin-bottom: 3%;
-    display: none;
-    position: static;
+    margin-bottom: 2%; 
     cursor: pointer;
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+    z-index: -1;
 }
 
 .image img{
-    display: block;
+    visibility: visible;
 }
 
-.list:hover .image{
-    display: block;
+@media (any-hover: hover){
+
+.list:hover label .image{
     opacity: 1;
+    visibility: visible;
+    z-index: 1;
     transition: 2s;
+    height: 100%;
 }
 
-@media (max-width: 1920px) {
+}
+
+@media (max-width: 1920px), (max-height: 1080px) {
     /* стили указанные здесь применяются, если ширина 
     viewport меньше или равно 1920px (desktop 1920×1080)*/
 
     .header{
-        font-size: 23px;
-    }
-
-    .text{
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 820px) {
-    /* стили указанные здесь применяются, если ширина 
-    viewport меньше или равно 820px (tablet 820x1180)*/
-    
-    .header{
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .text{
         font-size: 15px;
     }
+
+    .mem{
+        width: 45%;
+    }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 820px), (max-height: 1180) {
+    /* стили указанные здесь применяются, если ширина 
+    viewport меньше или равно 820px (tablet 820x1180)*/
+    
+    .header{
+        font-size: 15px;
+    }
+
+    .text{
+        font-size: 13px;
+    }
+
+    .mem{
+        width: 40%;
+    }
+}
+
+@media (max-width: 320px), (max-height: 568px) {
     /* стили указанные здесь применяются, если ширина 
     viewport меньше или равно 320px (mobile 320x568)*/
 
@@ -140,4 +164,9 @@
     .text{
         font-size: 7px;
     }
+
+    .mem{
+        width: 30%;
+    }
 }
+
